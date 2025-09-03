@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         schema::create('likes',function(Blueprint $table){
-        $table->integer('user_id');
-       $table->integer('post_id');
+         $table->id();
+        $table->foreignId('user_id')->constrained('users');
+         $table->foreignId('post_id')->constrained('posts');
+         $table->timestamps();
        
     });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExits('comentarios');
+        schema::dropIfExits('likes');
     }
 };

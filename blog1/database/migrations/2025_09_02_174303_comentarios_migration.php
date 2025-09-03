@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         schema::create('comentarios',function(Blueprint $table){
-        $table->integer('user_id');
-        $table->integer('post_id');
+        $table->id();
+       $table->foreignId('user_id')->constrained('users');
+        $table->foreignId('post_id')->constrained('posts');
         $table->string('content');
         $table->timestamps();
     });

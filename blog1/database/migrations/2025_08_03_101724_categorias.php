@@ -11,18 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-    schema::create('posts',function(Blueprint $table){
+      schema::create('categorias',function(Blueprint $table){
         $table->id();
-        $table->string('title');
-        $table->string('description');
+        $table->string('name',200);
         $table->string('img',100);
-        $table->string('content');
-        $table->integer('likes');
-        $table->String('slug');
-
-        $table->foreignId('user_id')->constrained('users');
-         $table->foreignId('categorias_id')->constrained('categorias');
-        
         $table->timestamps();
     });
     }
@@ -32,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        schema::dropIfExits('posts');
+        schema::dropIfExits('categorias');
     }
 };
