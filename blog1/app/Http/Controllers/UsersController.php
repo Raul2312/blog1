@@ -14,4 +14,9 @@ class UsersController extends Controller
         return view("admin.users")
         ->with('usuarios',$data);
     }
+
+
+     public function createUsers(){
+        dd("si jalo");
+    }
 }

@@ -29,6 +29,7 @@ Route::group(['prefix'=>'dashboard'],function(){
   });
 
   Route::get("/users",[UsersController::class,'getUsers']);
+  Route::post("/users",[UsersController::class,'createUsers']);
  
 });
 

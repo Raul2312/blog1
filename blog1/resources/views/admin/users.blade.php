@@ -1,7 +1,17 @@
 @extends('admin.layouts.main')
-<!-- debe llamarse igualm que el yield -->
+<!-- debe llamarse igual que el yield -->
 @section('contenido')
-    <h1>Usuarios</h1>
+<div class="d-flex justify-content-between"> 
+    <h1>Usuarios</h1> 
+    <div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Agregar
+        </button>
+    </div>
+
+
+</div>
+    
     <div class="p-4">
         <table class="table">
   <thead>
@@ -35,6 +45,67 @@
   </tbody>
 </table>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="/dashboard/users" method="POST">
+                    @csrf
+                    <div class="modal-body">
+    
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+    
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="nickname">Nickname</label>
+                            <input type="text" class="form-control" id="nickname" aria-describedby="emailHelp">
+    
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <label for="email">Email Adress</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
+    
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="password2">Confirmar Password</label>
+                            <input type="password" class="form-control" id="password2" aria-describedby="emailHelp">
+    
+                        </div>
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+
+    
+    
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('scripts')
