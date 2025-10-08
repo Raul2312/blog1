@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('/admin/css/sb-admin-2.min.css ')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
 
 </head>
 
@@ -81,7 +82,8 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a  onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();" class="btn btn-primary" href="">Logout</a>
                 </div>
             </div>
         </div>
@@ -96,6 +98,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('/admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 
     @yield('scripts')
 
