@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
-     public function __constuct(){  
+     public function __construct(){  
         $this->middleware('auth');
     }
     public function index(){
@@ -31,17 +31,18 @@ class PostsController extends Controller
         'title' => 'required|string|max:255',
         'description' => 'required|string|max:255',
         'content'=>'required|string',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+        'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         'category_id' => 'required',
     ], [
         'title.required' => 'El título es obligatorio',
         'content.required' => 'El contenido es obligatorio',
-        'image.image' => 'Debe de ser una imagen valida',
+        'img.image' => 'Debe de ser una imagen valida',
         'category_id.required' => 'Seleccione iuna categoria',
     ]);
 
-    $file = $request->file('image');
+    $file = $request->file('img');
     $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+    $file->move(public_path('posts/'), $filename);
     //debe mover la carpeta posts en public
 
     $post = new Post();
