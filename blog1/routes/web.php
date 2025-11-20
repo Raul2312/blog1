@@ -30,8 +30,8 @@ Route::resource('/',DashboardController::class);
 Route::resource('/posts',PostsController::class);
 Route::get('/posts/actions/add',[PostsController::class,'showAdd']);
 
-  Route::get("/users",[UsersController::class,'getUsers']);
-  Route::post("/users",[UsersController::class,'createUsers']);
+Route::get("/users",[UsersController::class,'getUsers']);
+Route::post("/users",[UsersController::class,'createUsers']);
  
 });
 

@@ -73,7 +73,7 @@
                 </div>
 
                 <form action="/dashboard/users" method="POST">
-                    @csrf
+                    @csrf   
                     <div class="modal-body">
     
                         <div class="form-group">

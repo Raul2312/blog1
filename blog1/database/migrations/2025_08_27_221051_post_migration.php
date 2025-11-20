@@ -21,7 +21,7 @@ return new class extends Migration
         $table->String('slug');
 
         $table->foreignId('user_id')->constrained('users');
-         $table->foreignId('categorias_id')->constrained('categorias');
+        $table->foreignId('categorias_id')->constrained('categorias');
         
         $table->timestamps();
     });
